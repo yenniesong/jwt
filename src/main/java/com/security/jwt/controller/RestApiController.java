@@ -30,7 +30,7 @@ public class RestApiController {
     @PostMapping("join")
     public String join(@RequestBody JwtUser jwtUser){
         jwtUser.setPassword(bCryptPasswordEncoder.encode(jwtUser.getPassword()));
-        jwtUser.setRoles("ROLE_USER");
+        jwtUser.setRoles("ROLE_USER"); // 롤은 기본으로 ROLE_USER 설정
         jwtUserRepository.save(jwtUser);
         return "회원가입 완.";
     }
